@@ -68,7 +68,7 @@ Then send to the repeater tab. Also forward the request and look at the result a
 
 ![Image 5-3](images/5-3.png)
 
-It is uploading in a randomly named directory with the PDF extension. So we have to find a way to RCE via uploading insecure files. The first idea is to get rid of the .pdf extension.
+PDF File is being uploaded into directory named with hash of the file, and they have the PDF extension. So we have to find a way to RCE via uploading insecure files. The first idea is to get rid of the .pdf extension.
 
 ![Image 5-4](images/5-4.png)
 
