@@ -1,0 +1,4 @@
+# Nmap 7.94SVN scan initiated Sat Jan 27 18:50:11 2024 as: nmap -p 22,80 -sV -sC -A -oG zipping 10.10.11.229
+Host: 10.10.11.229 ()	Status: Up
+Host: 10.10.11.229 ()	Ports: 22/open/tcp//ssh//OpenSSH 9.0p1 Ubuntu 1ubuntu7.3 (Ubuntu Linux; protocol 2.0)/, 80/open/tcp//http//Apache httpd 2.4.54 ((Ubuntu))/	Seq Index: 257	IP ID Seq: All zeros
+# Nmap done at Sat Jan 27 18:50:24 2024 -- 1 IP address (1 host up) scanned in 13.68 seconds
