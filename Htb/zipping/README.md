@@ -1,19 +1,6 @@
 # Machine
 
-![Image 1-1](images/1-1.png)
-
-![Image 1-2](images/1-2.png)
-
-## Name
-Zipping
-
-## Ip
-10.10.11.229
-
-## Difficulty
-Medium
-
-Prepared by: Azizhan Kaya
+![image](https://github.com/AzizhanKaya/projelerim/assets/149832485/e02ac32f-58ff-4ed2-a959-2556ef62a15c)
 
 # Enumeration
 
@@ -29,13 +16,15 @@ Looking at the results, we have just 2 ports open:
 
 So we know we are dealing with a web application.
 
-Scan version of protocols which open with nmap:
+Scan version of open protocols with Nmap:
 
 ![Image 2-3](images/2-3.png)
 
 Results:
 
 ![Image 2-4](images/2-4.png)
+
+We have confirmed that it is a Linux server using the Apache web server.
 
 # Web Application
 
@@ -59,9 +48,11 @@ Shop page:
 
 ## LFI
 
+Testing LFI.
+
 ![Image 4-1](images/4-1.png)
 
-Testing.
+It seems vulnerable. We'll come back to this later
 
 ## File Upload
 
@@ -91,6 +82,8 @@ Response:
 
 We can't pass the firewall.
 
+Let's try something else.
+
 ![Image 5-7](images/5-7.png)
 
 Copy PHP reverse shell and edit our IP and listening port.
@@ -109,9 +102,9 @@ And zip again with .pdf.
 
 ![Image 5-11](images/5-11.png)
 
-Reverse shell uploaded successfully.
+Upload reverse shell.
 
-# RCE
+## RCE
 
 It's time to use LFI. This phar is a PHP wrapper. Let's send our payload to run our PHP reverse shell.
 
@@ -123,7 +116,7 @@ Don't forget to listen :)
 
 Finally, we have our shell.
 
-# Privesc
+## Privesc
 
 As usual:
 
@@ -162,13 +155,13 @@ So let's dive deeper and do some reverse engineering.
 
 ![Image 8-7](images/8-7.png)
 
-Use strace.
+Use strace to see what the program is doing
 
 ![Image 8-8](images/8-8.png)
 
-*No such file or directory*.
+*No such file or directory*
 
-It happens when the program tries to include a library but couldn't. So we can add our payload to execute with the program so we can get root.
+It happens when the program tries to include a library but couldn't. So we can add our payload to execute with the program and we can get root.
 
 ![Image 8-9](images/8-9.png)
 
